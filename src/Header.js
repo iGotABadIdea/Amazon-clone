@@ -1,6 +1,7 @@
 import React from 'react'
 import './Header.css'
 import SearchIcon from '@material-ui/icons/Search';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 function Header() {
     return (
         <div className="header">
@@ -8,18 +9,26 @@ function Header() {
             <div className="header_search">
                 <input type="text" className="header_searchInput"/><SearchIcon className="header_searchIcon"/>
             </div>
-            <div classname="header_nav">
+            <div className="header_nav">
                 <div className="header_option">
-                    <span className='header_optionLineOn'>Hello Guest</span>
-                    <span className="header_optionLinetwo">Sign In</span>
+                    <span className='header_optionLineOne'>Hello Guest</span>
+                    <span className="header_optionLineTwo">Sign In</span>
                 </div>
-                <div className="header_option"></div>
-                    <span className='header_optionLineOn'>Returns</span>
-                    <span className="header_optionLinetwo">Orders</span>
-                <div className="header_option"></div>
-                    <span className='header_optionLineOn'>Your </span>
-                    <span className="header_optionLinetwo">Prime</span>
-            </div>
+                <div className="header_option">
+                     <span className='header_optionLineOne'>Returns</span>
+                    <span className="header_optionLineTwo">Orders</span>
+                </div>
+                   
+                <div className="header_option">
+                     <span className='header_optionLineOne'>Your </span>
+                    <span className="header_optionLineTwo">Prime</span>
+                </div>
+                <div className="header_optionCart">
+                    <ShoppingCartIcon/>
+                    <span className="header_optionLineTwo header_cartCount">0</span>
+                </div>
+                  
+                </div>
             
 
         </div>

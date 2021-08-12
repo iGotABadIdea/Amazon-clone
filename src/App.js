@@ -1,12 +1,12 @@
-import {Header} from ''
+import React from 'react'
+import Header from './Header'
 import './App.css';
 
 function App() {
   return (
     //BEM
     <div className="app">
-      <h1>Hello Rahul, Lets do it </h1>
-      {/*Header*/}
+      <Header/>
       {/*Body*/}
     </div>
   );

@@ -13,3 +13,4 @@ function Home() {
 }
 
 export default Home
+//dont have to waste time just do it 

@@ -16,3 +16,10 @@
     object-fit:contain;
     margin-bottom:15px;
 }
+.productInfo{
+    height:100px;
+    margin-bottom:15px;
+}
+.productPrice{
+    margin-top:5px;
+}

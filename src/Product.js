@@ -14,7 +14,7 @@ function Product() {
             </div>
             </div>
             <img className="productImage"src="https://m.media-amazon.com/images/I/71k45hZkLmL._AC_SL1500_.jpg"></img>
-            <button className="">Add to basket</button>
+            <button className="productButton">Add to basket</button>
         </div>
     )
 }

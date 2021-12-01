@@ -21,14 +21,14 @@
     ;
 }
 .header_searchInput{
-    height:10px;
+    height:30px;
     padding:10px;
     border:none;
     width:100%;
 }
 .header_searchIcon{
     padding: 5px;
-    height:20px !important;  
+    height:30px !important;  
     background-color:#cd9042;
 }
 .header_optionLineOne{

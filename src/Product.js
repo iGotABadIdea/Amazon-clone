@@ -4,13 +4,13 @@ function Product() {
     return (
         <div className="product">
             <div className="productInfo">
-            <p>The Lean startup</p>
+            <p>Acer Predator Hellios 300</p>
             <p className="productPrice">
                 <small>$</small>
-                <strong>20.99</strong>
+                <strong>1,199.99</strong>
             </p>
             <div className="productRating">
-                <p>⭐</p>
+                <p>⭐⭐⭐⭐⭐</p>
             </div>
             </div>
             <img className="productImage"src="https://m.media-amazon.com/images/I/71k45hZkLmL._AC_SL1500_.jpg"></img>
@@ -20,6 +20,6 @@ function Product() {
 }
 
 export default Product
-//pseudo commit-27
+//pseudo commit-27  
 
 

@@ -41,10 +41,10 @@ function Home() {
                </div>
                <div className="home_row">
                     <Product
-                    title
-                    price
-                    image
-                    rating
+                    title="Sony Bravia 164 cm (65 inches) XR series 4K Ultra HD Smart OLED Google TV XR-65A80J (Black) (2021 Model) | with Alexa Compatibility"
+                    price={3549.69}
+                    image="https://m.media-amazon.com/images/I/8116TOvxtsL._AC_UY218_.jpg"
+                    rating={5}
                     />
                    </div> 
 

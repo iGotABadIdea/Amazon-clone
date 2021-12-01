@@ -16,7 +16,7 @@ function Product({title, image, price, rating}) {
                 ))}
             </div>
             </div>
-            <img className="productImage"src="https://m.media-amazon.com/images/I/71k45hZkLmL._AC_SL1500_.jpg"></img>
+            <img className="productImage" src={image} alt=""></img>
             <button className="productButton">Add to basket</button>
         </div>
     )

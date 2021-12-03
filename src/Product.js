@@ -1,6 +1,20 @@
 import React from 'react'
 import './Product.css';
-function Product({title, image, price, rating}) {
+import { useStateValue } from './StateProvider';
+function Product({id, title, image, price, rating}) {
+    const [state,dispatch]=useStateValue();
+    const addToCart=()=>{
+        dispatch({
+            type:"ADD_TO_CART",
+            item:{
+                id:id,
+                title:title,
+                image:image,
+                price:price,
+                rating:rating,
+            },
+        });
+    };
     return (
         <div className="product">
             <div className="productInfo">
@@ -17,12 +31,12 @@ function Product({title, image, price, rating}) {
             </div>
             </div>
             <img className="productImage" src={image} alt=""></img>
-            <button className="productButton">Add to basket</button>
+            <button onClick={addToCart} className="productButton">Add to Cart</button>
         </div>
     )
 }
 
 export default Product
-//pseudo commit-27  
+
 
 

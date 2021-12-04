@@ -2,8 +2,13 @@ import React from 'react'
 import './Header.css'
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { selectItems } from '../slices/cartSlice';
+
 function Header() {
+
+    const items = useSelector(selectItems)
     return (
         <div className="header">
             <Link to="/"><img className="header_logo" src="http://pngimg.com/uploads/amazon/amazon_PNG25.png" alt="amazon-logo-img"/>
@@ -28,7 +33,7 @@ function Header() {
                 <Link to="/checkout">
                  <div className="header_optionCart">
                     <ShoppingCartIcon/>
-                    <span className="header_optionLineTwo header_cartCount">0</span>
+                    <span className="header_optionLineTwo header_cartCount">{items.length}</span>
                 </div>
                 </Link>
                 </div>

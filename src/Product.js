@@ -1,20 +1,21 @@
 import React from 'react'
 import './Product.css';
-import { useStateValue } from './StateProvider';
+import { useDispatch } from 'react-redux';
+import { addToCart } from './slices/cartSlice';
 function Product({id, title, image, price, rating}) {
-    const [state,dispatch]=useStateValue();
-    const addToCart=()=>{
-        dispatch({
-            type:"ADD_TO_CART",
-            item:{
-                id:id,
-                title:title,
-                image:image,
-                price:price,
-                rating:rating,
-            },
-        });
+    const dispatch= useDispatch();
+
+    const addItemToCart = () => {
+        const product = {
+             id,
+             title, 
+             image, 
+             price, 
+             rating
+        };
+        dispatch(addToCart(product))
     };
+      
     return (
         <div className="product">
             <div className="productInfo">
@@ -31,7 +32,7 @@ function Product({id, title, image, price, rating}) {
             </div>
             </div>
             <img className="productImage" src={image} alt=""></img>
-            <button onClick={addToCart} className="productButton">Add to Cart</button>
+            <button onClick={addItemToCart} className="productButton">Add to Cart</button>
         </div>
     )
 }

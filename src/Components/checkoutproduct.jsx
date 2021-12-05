@@ -1,11 +1,13 @@
 import React from 'react'
 import "./checkoutproduct.css";
 
-function CheckoutProduct({
-    id, title, image, price, rating
-}) {
+function CheckoutProduct({ id, title, image, price, rating}) 
+{
+    const removeItemFromBasket = () =>[
+
+    ]
     return ( 
-        <div className=" checkoutProduct grid grid-cols-5">
+        <div className=" checkoutProduct ">
             <img className="checkoutProductImage" src={image} alt=""/>
             <div className="checkoutProductInfo">
                 <p className="checkoutProductTitle">{title}</p>
@@ -13,14 +15,15 @@ function CheckoutProduct({
                     <small>$ </small>
                     <strong>{price}</strong>
                 </p>
-                <div className="chekcoutProductRating">
+                <div className="checkoutProductRating">
                     {Array(rating)
                     .fill()
                     .map((_, i)=>(
                         <p>⭐</p>
                     ))}
                 </div>
-                <button>Remove from Cart</button>
+                
+                <button onCLick={removeItemFromBasket}>Remove from Cart</button>
             </div>
         </div>
     )

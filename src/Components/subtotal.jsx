@@ -19,7 +19,7 @@ function Subtotal({items, total}) {
             value={total}
             displayType={"text"}
             thousandSeparator={true}
-            prefix={"$"}
+            prefix={"$ "}
             />    
 
             <button>

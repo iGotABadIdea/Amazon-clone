@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux';
 import "./Components/checkout.css";
 import Subtotal from './Components/subtotal';
 import CheckoutProduct from './Components/checkoutproduct';
-import { selectItems } from './slices/cartSlice';
+import { selectItems, selectTotal } from './slices/cartSlice';
 
 function Checkout() {
     const items = useSelector(selectItems)
+    const total = useSelector(selectTotal)
     return (
         <div className="checkOut">
             <div className="checkoutLeft">
@@ -27,7 +28,12 @@ function Checkout() {
                     </div>
             </div>
             <div className="checkoutRight">
-                <Subtotal/>
+                {items.length > 0 && (
+                <>
+                    <Subtotal items={items} total={total} />
+                </>    
+                )}
+                
             </div>
         </div>
     )

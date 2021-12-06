@@ -2,13 +2,13 @@ import React from 'react';
 import CurrencyFormat from 'react-currency-format';
 import "./subtotal.css";
 
-function Subtotal() {
+function Subtotal({items, total}) {
     return (
         <div className="subTotal">
             <CurrencyFormat
             renderText={(value)=>(
                 <>
-                <p> Subtotal (0 items): <strong>0</strong>
+                <p> Subtotal ({items.length}) items : <strong>{value}</strong>
                 </p>
                 <small className="subtotalGift">
                     <input type="checkbox" /> This Order contains a gift
@@ -16,13 +16,15 @@ function Subtotal() {
                 </>
             )}
             decimalScale={2}
-            value={0}
+            value={total}
             displayType={"text"}
             thousandSeparator={true}
             prefix={"$"}
             />    
 
-            <button>Proceed to Checkout</button>
+            <button>
+               Proceed To Checkout    {/*I am not using next Auth authentication   */}
+            </button>
         </div>
     )
 }

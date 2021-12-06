@@ -1,11 +1,14 @@
 import React from 'react'
+import { removeFromCart } from '../slices/cartSlice';
+import {useDispatch} from "react-redux"
 import "./checkoutproduct.css";
 
 function CheckoutProduct({ id, title, image, price, rating}) 
-{
-    const removeItemFromBasket = () =>[
-
-    ]
+{   
+    const dispatch=useDispatch()
+    const removeItemFromCart = () => {
+        dispatch(removeFromCart({id}))
+    }
     return ( 
         <div className=" checkoutProduct ">
             <img className="checkoutProductImage" src={image} alt=""/>
@@ -23,7 +26,7 @@ function CheckoutProduct({ id, title, image, price, rating})
                     ))}
                 </div>
                 
-                <button onCLick={removeItemFromBasket}>Remove from Cart</button>
+                <button onClick={removeItemFromCart}>Remove from Cart</button>
             </div>
         </div>
     )

@@ -10,7 +10,8 @@
 .loginLogo{
     margin: 20px auto;
     object-fit: contain;
-    width:250px; 
+    width:150px; 
+    padding:none;
 }
 .loginContainer{
     width:300px;
@@ -21,4 +22,41 @@
     border: 1px solid lightgray;
     padding: 20px;
     
+}
+.loginContainer > h1{
+    font-weight: 500;
+    margin-bottom: 20px;
+
+}
+.loginContainer > h5{
+    margin-bottom: 5px;
+
+}
+.loginContainer > form > input{
+    height:30px;
+    margin-bottom:10px;
+    background-color:white;
+    width: 98%
+}
+.loginContainer > p{
+    margin-top: 15px;
+    font-size: 12px
+}
+.loginSignInButton{
+     background:#f0c14b;
+    border:1px solid;
+    border-radius:2px;
+    height:30px;
+    width:100%;
+    margin-top:20px;
+    border-color: #a88734 #9c7e31 #846a29;
+    color:#111;
+}
+.loginRegisterButton{
+    border:1px solid;
+    border-radius:2px;
+    height:30px;
+    width:100%;
+    margin-top:10px;
+    border-color: darkgrey; 
 }

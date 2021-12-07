@@ -1,8 +1,7 @@
 import React, {useState} from 'react'
 import { Link, useNavigate} from "react-router-dom"
 import { auth } from '../firebase'
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword,
-onAuthStateChanged, signOut} from "firebase/auth"
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth"
 import "./login.css"
 
 function Login() {
@@ -14,9 +13,13 @@ function Login() {
         e.preventDefault();
         try {
            const user = await signInWithEmailAndPassword(auth, email, password);
-           if (user) {
-               navigate("/");
-           }
+            if(user !== null) {
+                   navigate("/")
+                   console.log("Logged in and Navigated")
+               }
+               else {
+                   console.log("check the email ID and Password")
+               }
        } catch (error ) {
            console.log(error.message);
        }
@@ -26,7 +29,13 @@ function Login() {
         e.preventDefault();
        try {
            const user = await createUserWithEmailAndPassword(auth, email, password);
-           console.log(user);
+           if(user !== null) {
+                   navigate("/")
+                   console.log("Registered and Navigated")
+               }
+               else {
+                   console.log("Please create an account")
+               }
        } catch (error) {
            alert(error.message)
        }

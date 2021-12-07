@@ -1,12 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Header from './Components/Header'
 import './App.css';
 import Home from "./Home";
 import Checkout from "./checkout";
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Login from './Components/login';
+import {auth} from "./firebase"
+import {onAuthStateChanged} from "firebase/auth"
 
 function App() {
+
+  useEffect(() => {
+      onAuthStateChanged(auth, authUser => {
+        console.log('The User is >>> ',authUser);
+        if( authUser){
+
+        } else {
+          
+        }
+      })
+  }, [])
   return (
     //BEM
     <Router>

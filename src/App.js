@@ -7,13 +7,17 @@ import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Login from './Components/login';
 import {auth} from "./firebase"
 import {onAuthStateChanged} from "firebase/auth"
+import { useDispatch } from 'react-redux';
+import {addUser} from './slices/userSlice'
 
 function App() {
+  const dispatch=useDispatch()
 
   useEffect(() => {
       onAuthStateChanged(auth, authUser => {
         console.log('The User is >>> ',authUser);
-        if( authUser){
+        if( authUser ){
+          dispatch(addUser(authUser))
 
         } else {
           

@@ -2,13 +2,12 @@ import React from 'react'
 import './Product.css';
 import { useDispatch } from 'react-redux';
 import { addToCart } from './slices/cartSlice';
-function Product({id, key, title, image, price, rating}) {
+function Product({id, title, image, price, rating}) {
     const dispatch= useDispatch();
 
     const addItemToCart = () => {
         const product = {
              id,
-             key,
              title, 
              image, 
              price, 
@@ -18,7 +17,7 @@ function Product({id, key, title, image, price, rating}) {
     };
       
     return (
-        <div className="product">
+        <div className="product" >
             <div className="productInfo">
             <p>{title}</p>
             <p className="productPrice">
@@ -28,7 +27,7 @@ function Product({id, key, title, image, price, rating}) {
             <div className="productRating">
                 {Array(rating)
                 .fill()
-                .map((_,i)=>(<p>⭐</p>
+                .map((_,i)=>(<p key={i}>⭐</p>
                 ))}
             </div>
             </div>

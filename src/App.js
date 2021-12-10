@@ -7,23 +7,29 @@ import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Login from './Components/login';
 import {auth} from "./firebase"
 import {onAuthStateChanged} from "firebase/auth"
-import { useDispatch } from 'react-redux';
-import {addUser} from './slices/userSlice'
+import { useDispatch,  } from 'react-redux';
+import {login, logout, } from './slices/userSlice'
+
 
 function App() {
-  const dispatch=useDispatch()
+const dispatch = useDispatch();
+
 
   useEffect(() => {
-      onAuthStateChanged(auth, authUser => {
-        console.log('The User is >>> ',authUser);
+      const unSubscribe = onAuthStateChanged(auth, authUser => {
         if( authUser ){
-          dispatch(addUser(authUser))
+        console.log(authUser)   
+        dispatch(login({
+          uid : authUser.uid,
+          email: authUser.email,      // add the userid here if required in the original tutorial 
+        }))
 
         } else {
-          
+          dispatch(logout())
         }
-      })
-  }, [])
+      });
+      return unSubscribe;
+  }, []);
   return (
     //BEM
     <Router>

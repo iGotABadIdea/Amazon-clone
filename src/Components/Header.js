@@ -5,22 +5,29 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { selectItems } from '../slices/cartSlice';
+import { selectUser } from '../slices/userSlice';
+import { auth } from '../firebase';
 
 function Header() {
-
-    const items = useSelector(selectItems)
+    const user = useSelector(selectUser); 
+    const items = useSelector(selectItems);
+    const handleAuthentication =()=>{
+        if(user) {
+            auth.signOut();
+        }
+    }
     return (
         <div className="header">
-            <Link to="/"><img className="header_logo" src="http://pngimg.com/uploads/amazon/amazon_PNG25.png" alt="amazon-logo-img"/>
+            <Link to="/"><img className="header_logo" src="http://pngimg.com/uploads/amazon/amazon_PNG25.png" alt="amazon-logo-img"/> 
             </Link>            
             <div className="header_search">
                 <input type="text" className="header_searchInput"/><SearchIcon className="header_searchIcon"/>
             </div>
             <div className="header_nav">
-                <Link to="/login">
-                <div className="header_option">
-                    <span className='header_optionLineOne'>Hello</span>
-                    <span className="header_optionLineTwo">Sign In</span>
+                <Link to={!user && "/login"}>
+                <div onClick = {handleAuthentication} className="header_option">
+                    <span className='header_optionLineOne'>{user ? `Hello ${user.email}` : "Hello Guest"}</span>         
+                    <span className="header_optionLineTwo">{user ? 'Sign Out' : "Sign In"}</span>
                 </div>
                 </Link>
                 

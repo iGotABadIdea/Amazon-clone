@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom"
 import { useSelector } from 'react-redux';
 import { selectItems, selectTotal } from '../slices/cartSlice';
 import { selectUser } from '../slices/userSlice';
@@ -12,9 +13,12 @@ function Payment() {
     return (
         <div className="payment">
             <div className="paymentContainer">
-                <div className="paymentSection ">
+                <h1>
+                    Checkout (<Link to="/checkout">{items?.length} items</Link>)
+                </h1>
+                <div className="paymentSection">
                     <div className="paymentTitle">
-                        <h3>Delivery Address </h3>
+                        <h3>Delivery Address: </h3>
                     </div>
                     <div className="paymentAddress">
                         <p>{user?.email}</p>
@@ -22,7 +26,7 @@ function Payment() {
                         <p>Siliguri, West Bengal</p>
                     </div>
                 </div>
-                 <div className="paymentSection ">
+                 <div className="paymentSection">
                      <div className="paymentTitle">
                          <h3>Review items and delievry </h3>
                      </div>
@@ -38,7 +42,13 @@ function Payment() {
                     )) }
                      </div>
                  </div>
-                  <div className="paymentSection "></div>
+                  <div className="paymentSection">
+                      <div className="paymentTitle">
+                          <h3>Payment Method </h3> 
+                      </div>
+                      <div className="paymentDetails">
+                          </div>    
+                  </div>
 
             </div>
             

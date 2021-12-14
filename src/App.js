@@ -10,6 +10,12 @@ import {onAuthStateChanged} from "firebase/auth"
 import { useDispatch,  } from 'react-redux';
 import {login, logout, } from './slices/userSlice'
 import Payment from './Components/payment';
+import {loadStripe} from "@stripe/stripe-js";
+import { Elements } from '@stripe/react-stripe-js';
+
+const promise = loadStripe(
+  "pk_test_51K6VwRSABJ4UuwukiwAlGKGYruwva97VSwG5MMWMHUqg3wqiF2qbjVrKdBwJe5Kc8fn3Duibhf02qoze8MLNWaLE00C1Il5gfv"
+);
 
 
 function App() {
@@ -47,7 +53,10 @@ const dispatch = useDispatch();
           <Route path="/payment" element={
           <React.Fragment>
           <Header/>
-          <Payment/>
+          <Elements stripe={promise}>
+            <Payment/>
+          </Elements>
+          
           </React.Fragment>
           }
           />

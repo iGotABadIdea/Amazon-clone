@@ -10,7 +10,7 @@ import CurrencyFormat from 'react-currency-format';
 import axios from "./Components/axios"
 
 function Payment() {
-    const history=useHistory;
+    const history=useHistory();
     const items = useSelector(selectItems)
     const total = useSelector(selectTotal)
     const user = useSelector(selectUser);  

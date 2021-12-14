@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Link, useHistory} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import { useSelector } from 'react-redux';
 import { selectItems, selectTotal } from '../slices/cartSlice';
 import { selectUser } from '../slices/userSlice';
@@ -7,10 +7,10 @@ import CheckoutProduct from './checkoutproduct';
 import "./payment.css"
 import { useStripe, CardElement, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
-import axios from "./Components/axios"
+import axios from "axios"
 
 function Payment() {
-    const history=useHistory();
+    const navigate= useNavigate();
     const items = useSelector(selectItems)
     const total = useSelector(selectTotal)
     const user = useSelector(selectUser);  
@@ -43,7 +43,7 @@ function Payment() {
             setSucceeded(true);
             setError(null);
             setProcessing(false)
-            history.replace('/orders')
+           navigate("/orders", {replace: true})
         })
     }
     const handleChange = e =>{

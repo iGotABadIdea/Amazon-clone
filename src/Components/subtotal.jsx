@@ -1,8 +1,10 @@
 import React from 'react';
 import CurrencyFormat from 'react-currency-format';
+import { useNavigate } from 'react-router-dom';
 import "./subtotal.css";
 
 function Subtotal({items, total}) {
+    const navigate = useNavigate();
     return (
         <div className="subTotal">
             <CurrencyFormat
@@ -22,7 +24,7 @@ function Subtotal({items, total}) {
             prefix={"$ "}
             />    
 
-            <button>
+            <button onClick={() => navigate('/payment')}>
                Proceed To Checkout    {/*I am not using next Auth authentication   */}
             </button>
         </div>

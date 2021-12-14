@@ -9,6 +9,7 @@ import {auth} from "./firebase"
 import {onAuthStateChanged} from "firebase/auth"
 import { useDispatch,  } from 'react-redux';
 import {login, logout, } from './slices/userSlice'
+import Payment from './Components/payment';
 
 
 function App() {
@@ -43,6 +44,14 @@ const dispatch = useDispatch();
             </React.Fragment>
           }
           />
+          <Route path="/payment" element={
+          <React.Fragment>
+          <Header/>
+          <Payment/>
+          </React.Fragment>
+          }
+          />
+          
           <Route path="/" element={
           <React.Fragment>
             <Header/>
